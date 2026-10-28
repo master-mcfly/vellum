@@ -1,0 +1,15 @@
+{
+  "name": "vellum",
+  "productName": "Vellum",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A desktop reader that answers questions about your documents.",
+  "author": "MartiNEZZ",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^33.4.11"
+  }
+}

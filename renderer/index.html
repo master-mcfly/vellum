@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vellum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,560;6..72,650&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div class="mark" aria-hidden="true">V</div>
+        <div class="brand">
+          <p class="eyebrow">Vellum</p>
+          <p class="doc-name" id="doc-name">Document</p>
+        </div>
+        <button class="icon-btn" id="size-btn" type="button" aria-label="Type size">A</button>
+        <button class="icon-btn" id="key-btn" type="button" aria-label="API key">Key</button>
+      </header>
+      <div class="body">
+        <aside class="shelf">
+          <label class="search">
+            <span aria-hidden="true">⌕</span>
+            <input id="shelf-search" type="search" placeholder="Search the shelf" />
+          </label>
+          <ul class="list" id="shelf"></ul>
+          <div class="shelf-foot">
+            <button class="solid" id="add-btn" type="button">Add a document</button>
+          </div>
+        </aside>
+        <main class="reader">
+          <div class="meter" aria-hidden="true"><span id="meter"></span></div>
+          <label class="find">
+            <span aria-hidden="true">⌕</span>
+            <input id="find" type="search" placeholder="Find in this document" />
+          </label>
+          <div class="scroll" id="scroll">
+            <article>
+              <p class="kicker" id="kicker"></p>
+              <h1 id="title"></h1>
+              <p class="meta" id="meta"></p>
+              <div class="prose md" id="prose"></div>
+            </article>
+          </div>
+        </main>
+        <aside class="ask">
+          <div class="ask-head">
+            <div>
+              <h2>Ask this document</h2>
+              <p>Answers stay inside the text you have open.</p>
+            </div>
+            <button class="linkish" id="clear-btn" type="button">Clear</button>
+          </div>
+          <div class="thread" id="thread"></div>
+          <form class="composer" id="composer">
+            <div class="composer-box">
+              <textarea id="draft" rows="2" placeholder="Ask about this document"></textarea>
+              <button class="send" type="submit" aria-label="Send question">↑</button>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </div>
+
+    <div class="modal-back hidden" id="add-modal">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="add-title">
+        <div class="modal-top">
+          <h2 id="add-title">Add a document</h2>
+          <button class="icon-btn" id="add-close" type="button" aria-label="Close">×</button>
+        </div>
+        <p class="hint">Paste prose, notes, or minutes. Questions will use only this text.</p>
+        <label class="field">Title<input id="new-title" type="text" /></label>
+        <label class="field">Author<input id="new-author" type="text" placeholder="Optional" /></label>
+        <label class="field">Text<textarea id="new-body"></textarea></label>
+        <p class="error" id="add-error"></p>
+        <div class="modal-actions">
+          <span class="hint">Separate paragraphs with a blank line.</span>
+          <button class="solid" id="save-doc" type="button">Put it on the shelf</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-back hidden" id="key-modal">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="key-title">
+        <div class="modal-top">
+          <h2 id="key-title">Grok key</h2>
+          <button class="icon-btn" id="key-close" type="button" aria-label="Close">×</button>
+        </div>
+        <p class="hint" id="key-status">Without a key, Vellum answers from the closest passages. Nothing is sent off this machine.</p>
+        <label class="field">xAI API key<input id="key-input" type="password" autocomplete="off" placeholder="Leave blank to forget the key" /></label>
+        <p class="error" id="key-error"></p>
+        <div class="modal-actions">
+          <span class="hint">Stored only on this computer.</span>
+          <button class="solid" id="save-key" type="button">Save key</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="ground.js"></script>
+    <script src="docs.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
